@@ -1,1 +1,1 @@
-# Computer-Sciences-101
+# CS-101
