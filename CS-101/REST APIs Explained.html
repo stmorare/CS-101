@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REST API Study Notes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        ul {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>REST API Study Notes</h1>
+    
+    <h2>What is an API?</h2>
+    <p>An API (Application Programming Interface) allows two pieces of software to communicate. This is essential because each software system can be different, and a standardized way of communication ensures compatibility.</p>
+    
+    <h2>Why Use JSON?</h2>
+    <p>JSON (JavaScript Object Notation) is commonly used in APIs as a lightweight data-interchange format. It is easy for humans to read and write and easy for machines to parse and generate. JSON uses name/value pairs and ordered lists, making it suitable for various programming languages.</p>
+    
+    <h2>How REST Works</h2>
+    <p>REST (Representational State Transfer) is a set of rules that developers follow when creating APIs. It uses standard web protocols, primarily HTTP, and focuses on stateless communication, meaning each request from a client to server must contain all the information the server needs to fulfill that request.</p>
+    
+    <h2>API Endpoints</h2>
+    <p>Endpoints are specific paths on a server where data can be accessed or modified. For example, <code>/drinks/&lt;id&gt;</code> might be an endpoint to get information about a particular drink, where <code>&lt;id&gt;</code> is the identifier for the drink.</p>
+    
+    <h2>Why the Complexity?</h2>
+    <ul>
+        <li><strong>Security:</strong> APIs can implement security measures like authentication to ensure only authorized users can access data.</li>
+        <li><strong>Versatility:</strong> A single backend can serve multiple frontends (web, mobile, desktop) consistently.</li>
+        <li><strong>Modularity:</strong> The backend can be updated or replaced without affecting the frontend, as long as the API remains the same.</li>
+        <li><strong>Interoperability:</strong> Public APIs allow different developers to create diverse applications using the same data.</li>
+    </ul>
+    
+    <h2>HTTP Methods in REST APIs</h2>
+    <ul>
+        <li><strong>GET:</strong> Retrieve data from the server (e.g., viewing a webpage).</li>
+        <li><strong>POST:</strong> Send data to the server to create or update resources.</li>
+        <li><strong>PUT:</strong> Update or replace existing resources. It is idempotent, meaning making the same request multiple times will have the same effect.</li>
+        <li><strong>DELETE:</strong> Remove a resource from the server.</li>
+        <li><strong>PATCH:</strong> Update partial resources.</li>
+    </ul>
+    
+    <h2>Consuming an API</h2>
+    <p>To use an API, you can make requests using URLs and methods like GET or POST. For instance, accessing <code>https://api.example.com/items</code> with a GET request retrieves data, while a POST request to the same endpoint might add a new item.</p>
+    
+    <h2>Example: Using a REST API with Python</h2>
+    <pre>
+<code>
+import requests
+response = requests.get("https://api.example.com/items")
+data = response.json()
+for item in data:
+    print(item['name'])
+</code>
+    </pre>
+    <p>This script makes a GET request to an API, converts the response to JSON, and prints out each item's name.</p>
+    
+    <h2>Building a REST API with Flask</h2>
+    <p>Flask is a Python web framework that makes it easy to create APIs. Here’s a simple example:</p>
+    <pre>
+<code>
+from flask import Flask, request, jsonify
+app = Flask(__name__)
+
+@app.route('/items', methods=['GET'])
+def get_items():
+    items = [{"name": "Item1"}, {"name": "Item2"}]
+    return jsonify(items)
+
+@app.route('/items', methods=['POST'])
+def add_item():
+    new_item = request.get_json()
+    # Logic to add item to database goes here
+    return jsonify(new_item), 201
+
+if __name__ == '__main__':
+    app.run(debug=True)
+</code>
+    </pre>
+    <p>This code sets up a basic Flask application with endpoints to get and add items using GET and POST methods.</p>
+    
+    <h2>Conclusion</h2>
+    <p>REST APIs are powerful tools that enable different software systems to communicate efficiently and securely over the internet. By understanding the basics of HTTP methods, JSON, and how to consume and create APIs, developers can build robust applications that interact seamlessly with various data sources.</p>
+</body>
+</html>
