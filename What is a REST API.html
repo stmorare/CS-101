@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning Notes: What is a REST API?</title>
+</head>
+<body>
+    <h1>What is a REST API?</h1>
+    <p>What are the benefits and how are they fundamental to your cloud application development?</p>
+    <p><strong>Nathan Heckman</strong> from IBM Cloud explains in this video.</p>
+    
+    <h2>Intro</h2>
+    <p>Let's start with an example to understand REST APIs:</p>
+    <p>Imagine you work for an ice cream shop and need to build a web application to display the flavors in stock and allow workers to update these flavors. How do you do this? With a REST API.</p>
+    
+    <h2>What does "REST" stand for?</h2>
+    <p>REST stands for <strong>Representational State Transfer</strong>. It is a standardized software architecture style, a specific type of API that is widely known and used in the industry.</p>
+    
+    <h2>Benefits of REST APIs</h2>
+    <ul>
+        <li>Simple and standardized approach to communication.</li>
+        <li>Scalable and stateless, making modifications easier as the service grows.</li>
+        <li>High performance due to caching support.</li>
+    </ul>
+    
+    <h2>REST API Example</h2>
+    <p>For the ice cream shop, the REST API endpoint might look like this: <code>icecream.com/api/flavors</code>.</p>
+    <ul>
+        <li><code>api</code> signifies the API portion of the endpoint.</li>
+        <li><code>flavors</code> is a "resource" in the REST API.</li>
+    </ul>
+    
+    <h3>Main Building Blocks</h3>
+    <p>The main building blocks of a REST API are:</p>
+    <ul>
+        <li><strong>Request:</strong> Sent from the client to the server.</li>
+        <li><strong>Response:</strong> Received back from the server.</li>
+    </ul>
+    
+    <h3>Request</h3>
+    <p>Actions or verbs used in REST APIs:</p>
+    <ul>
+        <li><strong>CRUD:</strong> Create, Read, Update, Delete.</li>
+        <li><strong>HTTP Methods:</strong> POST (Create), GET (Read), PUT (Update), DELETE (Delete).</li>
+    </ul>
+    <p>Components of a request:</p>
+    <ul>
+        <li><strong>Operation:</strong> HTTP method.</li>
+        <li><strong>Endpoint:</strong> The REST API endpoint.</li>
+        <li><strong>Parameters/Body:</strong> Data sent in the request.</li>
+        <li><strong>Headers:</strong> May include API key or authentication data.</li>
+    </ul>
+    
+    <h3>Response</h3>
+    <p>Responses are typically in the form of JSON data.</p>
+    
+    <h2>REST API Scenarios</h2>
+    
+    <h3>Displaying Flavors in Stock</h3>
+    <p><strong>Operation:</strong> GET</p>
+    <p><strong>Endpoint:</strong> <code>/api/flavors</code></p>
+    <p><strong>Response:</strong> An array of flavor resources (e.g., strawberries, mint chocolate).</p>
+    
+    <h3>Updating a Flavor</h3>
+    <p><strong>Operation:</strong> PUT</p>
+    <p><strong>Endpoint:</strong> <code>/api/flavors/1</code> (to indicate the ID of "1" to replace)</p>
+    <p><strong>Parameter/Body:</strong> New flavor (e.g., chocolate)</p>
+    <p><strong>Response:</strong> Confirmation that the flavor was updated.</p>
+    
+    <h3>Creating a New Flavor</h3>
+    <p><strong>Operation:</strong> POST</p>
+    <p><strong>Endpoint:</strong> <code>/api/flavors</code></p>
+    <p><strong>Parameter/Body:</strong> New flavor (e.g., restful raspberry)</p>
+    <p><strong>Response:</strong> Confirmation that the new flavor was created with a new ID.</p>
+</body>
+</html>
